@@ -15,13 +15,19 @@ const nouns = ["jogger", "racoon"];
 const exts = [".com", ".net", ".us"];
 const domains = [];
 
-for (const p in pronouns) {
-  for (const a in adjs) {
-    for (const n in nouns) {
-      for (const e in exts) {
+for (const p of pronouns) {
+  for (const a of adjs) {
+    for (const n of nouns) {
+      for (const e of exts) {
         const d = p + a + n + e;
         domains.push(d);
       }
     }
   }
 }
+console.log(domains);
+
+const domNameList = domains
+  .map((element, positon, array) => `<li>${element}</li>`)
+  .join("");
+document.querySelector("p").innerHTML = domNameList;
